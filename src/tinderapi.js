@@ -70,6 +70,8 @@ class TinderAPI {
       return Promise.resolve(res.data)
     }).catch(e => Promise.reject(e))
   }
+
+  
 }
 
 export default TinderAPI
