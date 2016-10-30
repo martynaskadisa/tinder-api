@@ -67,10 +67,58 @@ describe('TinderAPI', () => {
       const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
 
       client.getUpdates(Date.now())
-      .then(res => {
-        expect(client.lastActivityDate).toBe(res.data.last_activity_date)
-        done()
-      }).catch(e => done(e))
+        .then(res => {
+          expect(client.lastActivityDate).toBe(res.data.last_activity_date)
+          done()
+        }).catch(e => done(e))
+    })
+  })
+
+  describe('getRecommended', () => {
+    it('should successfully get recommended', done => {
+      const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
+
+      client.getRecommended()
+        .then(res => {
+          expect(res.status).toBe(200)
+          done()
+        }).catch(e => done(e))
+    })
+  })
+
+  describe('like', () => {
+    it('should successfully like a user', done => {
+      const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
+
+      client.getRecommended()
+        .then(res => {
+          let { results } = res.data
+          let id = results[0].user._id
+
+          client.like(id)
+            .then(res => {
+              expect(res.status).toBe(200)
+              done()
+            }).catch(e => done(e))
+        }).catch(e => done(e))
+    })
+  })
+
+  describe('pass', () => {
+    it('should successfully pass a user', done => {
+      const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
+
+      client.getRecommended()
+        .then(res => {
+          let { results } = res.data
+          let id = results[0].user._id
+
+          client.pass(id)
+            .then(res => {
+              expect(res.status).toBe(200)
+              done()
+            }).catch(e => done(e))
+        }).catch(e => done(e))
     })
   })
 })

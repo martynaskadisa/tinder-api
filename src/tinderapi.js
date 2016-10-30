@@ -59,7 +59,7 @@ class TinderAPI {
 
   getUpdates (last_activity_date = this.lastActivityDate) {
     return this.request.post(
-      'updates',
+      '/updates',
       { last_activity_date: moment(last_activity_date).toISOString() },
       { headers: { 'X-Auth-Token': this.xAuthToken } }
     ).then(res => {
@@ -71,7 +71,26 @@ class TinderAPI {
     }).catch(e => Promise.reject(e))
   }
 
+  getRecommended () {
+    return this.request.get(
+      '/user/recs',
+      { headers: { 'X-Auth-Token': this.xAuthToken } }
+    )
+  }
 
+  like (_id) {
+    return this.request.get(
+      `/like/${_id}`,
+      { headers: { 'X-Auth-Token': this.xAuthToken } }
+    )
+  }
+
+  pass (_id) {
+    return this.request.get(
+      `/pass/${_id}`,
+      { headers: { 'X-Auth-Token': this.xAuthToken } }
+    )
+  }
 }
 
-export default TinderAPI
+module.exports = TinderAPI
