@@ -6,11 +6,14 @@
     "test": "karma start",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors"
   },
+  "engines": {
+    "node": "6.9.0"
+  },
   "repository": {
     "url": "git@github.com:candylifter/tinder-api.git",
     "type": "git"
   },
-  "author": "Martynas Kadiša <candylifter@gmail.com>",
+  "author": "Martynas Kadiša <kadisa.martynas@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.2",
