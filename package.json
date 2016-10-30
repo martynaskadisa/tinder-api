@@ -1,5 +1,5 @@
 {
-  "name": "tinder-api",
+  "name": "tinder-api-promise",
   "version": "0.0.0",
   "main": "./src/tinderapi.js",
   "scripts": {
