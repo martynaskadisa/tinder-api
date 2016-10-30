@@ -1,7 +1,7 @@
 {
   "name": "tinder-api",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "./src/tinderapi.js",
   "scripts": {
     "test": "karma start",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors"
