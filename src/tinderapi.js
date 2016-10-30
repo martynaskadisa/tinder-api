@@ -40,7 +40,7 @@ class TinderAPI {
         this.xAuthToken = token
         this.me = user
 
-        return Promise.resolve(res.data)
+        return Promise.resolve(res)
       })
       .catch((e) => {
         return Promise.reject(e)
@@ -53,7 +53,7 @@ class TinderAPI {
       { last_activity_date: '' },
       { headers: { 'X-Auth-Token': this.xAuthToken } }
     ).then(res => {
-      return Promise.resolve(res.data)
+      return Promise.resolve(res)
     }).catch(e => Promise.reject(e))
   }
 
@@ -67,11 +67,11 @@ class TinderAPI {
 
       this.lastActivityDate = last_activity_date
 
-      return Promise.resolve(res.data)
+      return Promise.resolve(res)
     }).catch(e => Promise.reject(e))
   }
 
-  
+
 }
 
 export default TinderAPI
