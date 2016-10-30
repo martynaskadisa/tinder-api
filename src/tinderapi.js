@@ -72,4 +72,4 @@ class TinderAPI {
   }
 }
 
-module.exports = TinderAPI
+export default TinderAPI
