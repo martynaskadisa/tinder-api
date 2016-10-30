@@ -1,6 +1,6 @@
 {
   "name": "tinder-api-promise",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./src/tinderapi.js",
   "scripts": {
     "test": "karma start",
