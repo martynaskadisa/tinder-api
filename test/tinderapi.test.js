@@ -104,6 +104,24 @@ describe('TinderAPI', () => {
     })
   })
 
+  describe('superLike', () => {
+    it('should successfully superlike a user', done => {
+      const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
+
+      client.getRecommended()
+        .then(res => {
+          let { results } = res.data
+          let id = results[0].user._id
+
+          client.superLike(id)
+            .then(res => {
+              expect(res.status).toBe(200)
+              done()
+            }).catch(e => done(e))
+        }).catch(e => done(e))
+    })
+  })
+
   describe('pass', () => {
     it('should successfully pass a user', done => {
       const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })

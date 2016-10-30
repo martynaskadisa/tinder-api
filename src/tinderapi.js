@@ -85,6 +85,14 @@ class TinderAPI {
     )
   }
 
+  superLike (_id) {
+    return this.request.post(
+      `/like/${_id}/super`,
+      undefined,
+      { headers: { 'X-Auth-Token': this.xAuthToken } }
+    )
+  }
+
   pass (_id) {
     return this.request.get(
       `/pass/${_id}`,
