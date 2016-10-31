@@ -99,6 +99,14 @@ class TinderAPI {
       { headers: { 'X-Auth-Token': this.xAuthToken } }
     )
   }
+
+  sendMessage (_id, message) {
+    return this.request.post(
+      `/user/matches/${_id}`,
+      { message },
+      { headers: { 'X-Auth-Token': this.xAuthToken } }
+    )
+  }
 }
 
 module.exports = TinderAPI

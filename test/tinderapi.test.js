@@ -139,4 +139,23 @@ describe('TinderAPI', () => {
         }).catch(e => done(e))
     })
   })
+
+  describe('sendMessage', () => {
+    it('should successfully send a message to user', done => {
+      const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
+
+      client.getHistory()
+        .then(res => {
+          let { matches } = res.data
+          let id = matches[0]._id
+          let message = 'What\'s up?'
+
+          client.sendMessage(id, message)
+            .then(res => {
+              expect(res.status).toBe(200)
+              done()
+            }).catch(e => done(e))
+        }).catch(e => done(e))
+    })
+  })
 })
