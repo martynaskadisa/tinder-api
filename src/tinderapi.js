@@ -115,6 +115,9 @@ class TinderAPI {
       { headers: { 'X-Auth-Token': this.xAuthToken } }
     )
   }
+
+  // TODO: reportUser,
+  // TODO: updateProfile,
 }
 
 module.exports = TinderAPI
