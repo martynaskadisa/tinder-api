@@ -107,6 +107,14 @@ class TinderAPI {
       { headers: { 'X-Auth-Token': this.xAuthToken } }
     )
   }
+
+  updateLocation (lat, lon) {
+    return this.request.post(
+      '/user/ping',
+      { lat, lon },
+      { headers: { 'X-Auth-Token': this.xAuthToken } }
+    )
+  }
 }
 
 module.exports = TinderAPI

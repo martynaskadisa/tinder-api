@@ -158,4 +158,16 @@ describe('TinderAPI', () => {
         }).catch(e => done(e))
     })
   })
+
+  describe('updateLocation', () => {
+    it('should successfully update location', done => {
+      const client = new TinderAPI({ xAuthToken: TINDER_TOKEN })
+
+      client.updateLocation(54.681939, 25.273250)
+        .then(res => {
+          expect(res.status).toBe(200)
+          done()
+        }).catch(e => done(e))
+    })
+  })
 })
